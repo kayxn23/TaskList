@@ -13,3 +13,36 @@
  *= require_tree .
  *= require_self
  */
+
+@media only screen and (min-width: 600px) {
+    section {
+        background-color: lightblue;
+    }
+}
+
+ section .title{
+   color: black;
+   list-style-type: none;
+ }
+
+ section {
+   list-style-type: none;
+   border: 2px solid hotpink;
+   border-radius: 6px;
+   padding: 5%;
+   padding-top: 1%;
+ }
+
+ .container {
+   display: grid;
+   grid-template: 1fr 2.5fr/2fr;
+   width: 28%;
+   height: 100%;
+   padding: 2%;
+ }
+
+footer {
+  display: flex;
+  background-color: grey;
+  height: 100px;
+}

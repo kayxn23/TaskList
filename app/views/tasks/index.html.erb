@@ -1,16 +1,36 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+
+
+<body>
+  <main class='container'>
+
+  <header>
+    <h1>TASKLIST</h1>
+  </header>
 
 <section>
-    <% @tasks.each do |task|%>
+
+  <h2>Your Tasks</h2>
+    <% @tasks.each_with_index do |task, i|%>
   <li class="title">
-    <%= "#{task[:name]}" %>
+    <%= "#{i + 1}. #{task.name}" %>
   </li>
   <li>
-    <%= "#{task[:completion]}" %>
+    <%= "#{task.description}" %>
   </li>
   <li>
-    <%= "#{task[:completion_date]}" %>
+    <%= "#{task.completion_date}" %>
   </li>
     <% end %>
+
+    </main>
+
 </section>
+
+
+<footer>
+  copywrite 2018
+</footer>
+
+
+
+</body>
