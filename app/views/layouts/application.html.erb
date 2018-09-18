@@ -5,11 +5,13 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+  <!-- Below are things that Rails includes by default -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= yield %> <!-- This is the key to utilizing the layout, the yield command is where the view(the .erb file) is placed inside the layout template.
+, The yield command inside of the_ value tag_ in this layout tells ERB that it should replace that tag with the content of another ERB template-->
   </body>
 </html>
