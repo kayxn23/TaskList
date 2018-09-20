@@ -5,11 +5,13 @@
 
   <header>
     <h1>TASKLIST</h1>
+    <%= link_to "Add Task", new_task_path %>
+
   </header>
 
 <section>
 
-  <h2>Your Tasks</h2>
+  <h2><%= link_to "Your Tasks", tasks_path %></h2>
     <% @tasks.each_with_index do |task, i|%>
   <li class="title">
     <%= "#{i + 1}. #{task.name}" %>
@@ -21,7 +23,6 @@
     <%= "#{task.completion_date}" %>
   </li>
     <% end %>
-    <h2><%= link_to "All Tasks", tasks_path %></h2> #this might need to be deleted
     </main>
 
 </section>

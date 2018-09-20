@@ -1,4 +1,6 @@
 <%# form_with url: "/tasks", method: :post, class: "task-form" do |f|%>
+<%= link_to "Your Tasks", tasks_path %>
+
 <body class="new-task-container">
 <%= form_with model: @task, class: "task-form" do |f|%>
   <p>Please provide the following information to save your task to our database:</p>
