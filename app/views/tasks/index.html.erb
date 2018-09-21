@@ -21,7 +21,7 @@
       </ul>
       <ul class="mark-edit-delete">
         <li>
-          <%= link_to "Mark Complete | ", task_path(task.id) %>
+          <%= link_to "Mark Complete | ", complete_task_path(task.id), method: :put %>
         </li>
         <li>
            <%= link_to " Edit | ", task_path(task.id) %>

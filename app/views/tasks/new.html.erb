@@ -1,6 +1,6 @@
 <%# form_with url: "/tasks", method: :post, class: "task-form" do |f|%>
 
-<body class="new-task-container">
+<!-- <body class="new-task-container">
 <%= form_with model: @task, class: "task-form" do |f|%>
   <p>Please provide the following information to save your task to our database:</p>
 
@@ -15,4 +15,8 @@
 
   <%= f.submit "Save Task", class: "task-button" %>
 <%end%>
-</body>
+</body> -->
+<%= render partial: "form", locals: { action_name: "Create New Task", button_title: 'Save Edit' } %>
+
+<%# the file name starts with underscore but this doesn't %>
+<%#the model we're using knows that if it has a id it does a patch request, if it doesn't have the id it makes a post request%>

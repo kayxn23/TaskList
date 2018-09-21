@@ -28,11 +28,12 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(name: params[:task][:name], description: params[:task][:description], completion_date: params[:task][:completion_date]) #instantiate a new task
+    @task = Task.new(task_params) #instantiate a new task
     if @task.save # save returns true if the database insert succeeds
       redirect_to root_path # go to the index so we can see the task in the list
     else # save failed :(
       render :new # show the new task form view again
+      #render :new says go to the routes, and get the task route that makes a new book in the routes.rb, render follows the method path like books#new , books#edit,
     end
   end
 
@@ -44,23 +45,27 @@ class TasksController < ApplicationController
     @task = Task.find_by(id: params[:id].to_i)
     @task.update(name: params[:task][:name], description: params[:task][:description], completion_date: params[:task][:completion_date])
 
-    redirect_to root_path
-
+    redirect_to task_path 
   end
 
   def destroy
-    @task = Task.find_by(id: params[:id].to_i)
-    @task.destroy
+    task = Task.find_by(id: params[:id].to_i)
+    task.destroy #deleted_task only exists when we run destroy it isn't saved in the database , using a instance variable allows us to use it in the erb page , rather than local variable
 
     redirect_to root_path
   end
 
-  def mark_complete
+  def complete
     @task = Task.find_by(id: params[:id].to_i)
     @task.completed = true
     @task.save
 
     redirect_to root_path
+  end
+
+private  #private means it can only be called by methods that are also in this class
+  def task_params
+    return params.require(:task).permit(:name, :description, :completion_date)  #require(:task) means only using the task subhash   .permit is only letting it access those three keys, it doesn't let it change the :id field which is good
   end
 
 end

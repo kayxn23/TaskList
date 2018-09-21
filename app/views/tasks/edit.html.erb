@@ -1,4 +1,4 @@
-<h1> Edit a task!</h1>
+<!-- <h1> Edit a task!</h1>
 
 <%= form_with model: @task, class: "task-edit-form" do |f| %>
   <p>Please edit the field of your taks:</p>
@@ -13,4 +13,6 @@
   <%= f.text_field :completion_date %>
 
   <%= f.submit "Save Edit", class: "save-edits-button" %>
-<% end %>
+<% end %> -->
+
+<%= render partial: "form", locals: { action_name: "Edit Task", button_title: 'Save Edit' } %>
