@@ -10,18 +10,21 @@
       <% @tasks.each_with_index do |task, i|%>
       <ul>
         <li>
-          <%= "#{i + 1}. #{task.name}" %>
+          <%= "Title: #{i + 1}. #{task.name}" %>
         </li>
         <li>
-          <%= "#{task.description}" %>
+          <%= "Description: #{task.description}" %>
         </li>
         <li>
-          <%= "#{task.completion_date}" %>
+          <%= "Aim to complete on: #{task.completion_date}" %>
+        </li>
+        <li>
+          <%= "Completed on: #{task.completed_at}" %>
         </li>
       </ul>
       <ul class="mark-edit-delete">
         <li>
-          <%= link_to "Mark Complete | ", complete_task_path(task.id), method: :put %>
+          <%= link_to "Mark Complete | ", complete_task_path(task.id), method: :patch %>
         </li>
         <li>
            <%= link_to " Edit | ", task_path(task.id) %>

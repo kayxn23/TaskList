@@ -8,6 +8,7 @@
 #  { id: 5, name: "Ada Zoo", description: "Optional", completion_date: "2018-10-01" }
 # ]
 
+require 'date'
 
 class TasksController < ApplicationController
   def index
@@ -45,7 +46,7 @@ class TasksController < ApplicationController
     @task = Task.find_by(id: params[:id].to_i)
     @task.update(name: params[:task][:name], description: params[:task][:description], completion_date: params[:task][:completion_date])
 
-    redirect_to task_path 
+    redirect_to task_path
   end
 
   def destroy
@@ -55,17 +56,25 @@ class TasksController < ApplicationController
     redirect_to root_path
   end
 
+
   def complete
     @task = Task.find_by(id: params[:id].to_i)
-    @task.completed = true
-    @task.save
+    if @task.completed_at == nil
+      new_date = DateTime.now
+    else
+      new_date = nil
+    end
+
+    @task.update(completed_at: new_date)
 
     redirect_to root_path
   end
 
-private  #private means it can only be called by methods that are also in this class
+  private  #private means it can only be called by methods that are also in this class
   def task_params
     return params.require(:task).permit(:name, :description, :completion_date)  #require(:task) means only using the task subhash   .permit is only letting it access those three keys, it doesn't let it change the :id field which is good
   end
+
+
 
 end
