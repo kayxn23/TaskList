@@ -1,18 +1,17 @@
 <%# form_with url: "/tasks", method: :post, class: "task-form" do |f|%>
-<%= link_to "Your Tasks", tasks_path %>
 
 <body class="new-task-container">
 <%= form_with model: @task, class: "task-form" do |f|%>
   <p>Please provide the following information to save your task to our database:</p>
 
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, placeholder: "name of task here" %>
 
   <%= f.label :description %>
-  <%= f.text_field :description %>
+  <%= f.text_field :description, placeholder: "description here" %>
 
   <%= f.label :completion_date %>
-  <%= f.text_field :completion_date %>
+  <%= f.text_field :completion_date, placeholder: "completion date here" %>
 
   <%= f.submit "Save Task", class: "task-button" %>
 <%end%>

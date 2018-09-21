@@ -10,8 +10,18 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+
   <body>
+    <header>
+      <h1>TASKLIST</h1>
+      <section class="add-task-button"><%= link_to "Add Task", new_task_path %></section>
+      <section class="all-tasks-button"><%= link_to "All Tasks", tasks_path %></section>
+    </header>
+
     <%= yield %> <!-- This is the key to utilizing the layout, the yield command is where the view(the .erb file) is placed inside the layout template.
 , The yield command inside of the_ value tag_ in this layout tells ERB that it should replace that tag with the content of another ERB template-->
   </body>
+  <footer>
+    copywrite 2018
+  </footer>
 </html>

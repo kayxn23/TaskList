@@ -5,12 +5,14 @@
   <%= "Task #{@task.id} #{@task.name} " %>
   <ul>
     <li>
-      <%= "#{@task}"%>
+      <%= "#{@task.description}"%>
+    </li>
+    <li>
+      <%= "#{@task.completion_date}"%>
     </li>
   </ul>
   <% end %>
-<h3><%= link_to "Task #1", task_path(1) %></h3>
+<h3><%= link_to "Edit #{@task.name}", edit_task_path(@task.id) %></h3>
 </section>
-
 
 <!-- then in the browser you can do http://localhost:3000/tasks/id -->

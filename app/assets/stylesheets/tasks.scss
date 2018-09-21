@@ -8,10 +8,15 @@
 //   padding: 5%;
 //   padding-top: 1%;
 // }
-.new-task-container {
+.new-task-container, .add-task-button, .all-tasks-button {
   list-style-type: none;
   border: 2px solid hotpink;
   border-radius: 6px;
   padding: 5%;
   padding-top: 1%;
+}
+
+.mark-edit-delete {
+  display: flex;
+  list-style: none;
 }

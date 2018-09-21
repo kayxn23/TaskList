@@ -3,35 +3,40 @@
 <body>
   <main class='container'>
 
-  <header>
-    <h1>TASKLIST</h1>
-    <%= link_to "Add Task", new_task_path %>
 
-  </header>
+    <section>
 
-<section>
+      <h2>Your Tasks</h2>
+      <% @tasks.each_with_index do |task, i|%>
+      <ul>
+        <li>
+          <%= "#{i + 1}. #{task.name}" %>
+        </li>
+        <li>
+          <%= "#{task.description}" %>
+        </li>
+        <li>
+          <%= "#{task.completion_date}" %>
+        </li>
+      </ul>
+      <ul class="mark-edit-delete">
+        <li>
+          <%= link_to "Mark Complete | ", task_path(task.id) %>
+        </li>
+        <li>
+           <%= link_to " Edit | ", task_path(task.id) %>
+        </li>
+        <li>
+           <%= link_to " Delete | ", task_path(task.id), method: :delete,  data: { confirm: 'Are you sure?' } %>
+        </li>
+      </ul>
 
-  <h2><%= link_to "Your Tasks", tasks_path %></h2>
-    <% @tasks.each_with_index do |task, i|%>
-  <li class="title">
-    <%= "#{i + 1}. #{task.name}" %>
-  </li>
-  <li>
-    <%= "#{task.description}" %>
-  </li>
-  <li>
-    <%= "#{task.completion_date}" %>
-  </li>
-    <% end %>
+      <% end %>
+
+
     </main>
 
-</section>
-
-
-<footer>
-  copywrite 2018
-  <h3><%= link_to "Home", "/" %></h3>
-</footer>
+  </section>
 
 
 

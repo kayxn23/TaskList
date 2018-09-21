@@ -28,7 +28,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(name: params[:task][:name], description: params[:task][:description]) #instantiate a new task
+    @task = Task.new(name: params[:task][:name], description: params[:task][:description], completion_date: params[:task][:completion_date]) #instantiate a new task
     if @task.save # save returns true if the database insert succeeds
       redirect_to root_path # go to the index so we can see the task in the list
     else # save failed :(
@@ -36,13 +36,31 @@ class TasksController < ApplicationController
     end
   end
 
-  def edit #this method gives the user a form 
+  def edit #this method gives the user a form
     @task = Task.find(params[:id].to_i)
   end
 
   def update
+    @task = Task.find_by(id: params[:id].to_i)
+    @task.update(name: params[:task][:name], description: params[:task][:description], completion_date: params[:task][:completion_date])
+
+    redirect_to root_path
+
   end
 
   def destroy
+    @task = Task.find_by(id: params[:id].to_i)
+    @task.destroy
+
+    redirect_to root_path
   end
+
+  def mark_complete
+    @task = Task.find_by(id: params[:id].to_i)
+    @task.completed = true
+    @task.save
+
+    redirect_to root_path
+  end
+
 end
