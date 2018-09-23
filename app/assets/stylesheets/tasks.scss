@@ -20,3 +20,11 @@
   display: flex;
   list-style: none;
 }
+
+#mark-complete {
+  text-decoration: line-through;
+}
+
+#unmark-complete {
+  text-decoration: none;
+}
