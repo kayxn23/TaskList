@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>TaskList</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-  <!-- Below are things that Rails includes by default -->
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-
-  <body>
-    <header>
-      <h1>TASKLIST</h1>
-      <section class="add-task-button"><%= link_to "Add Task", new_task_path %></section>
-      <section class="all-tasks-button"><%= link_to "All Tasks", tasks_path %></section>
-    </header>
-
-    <%= yield %> <!-- This is the key to utilizing the layout, the yield command is where the view(the .erb file) is placed inside the layout template.
-, The yield command inside of the_ value tag_ in this layout tells ERB that it should replace that tag with the content of another ERB template-->
-  </body>
-  <footer>
-    copywrite 2018
-  </footer>
+   <head>
+      <title>TaskList</title>
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+      <!-- Below are things that Rails includes by default -->
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+   </head>
+   <section id='website-container'>
+      <body id='body-container'>
+         <header>
+            <h1>TASKLIST</h1>
+         </header>
+         <div id='buttons-tasks-container'>
+           <div id='task-buttons'>
+            <section class="add-task-button"><%= link_to "Add Task", new_task_path %></section>
+            <section class="all-tasks-button"><%= link_to "All Tasks", tasks_path %></section>
+          </div>
+         <%= yield %> <!-- This is the key to utilizing the layout, the yield command is where the view(the .erb file) is placed inside the layout template.
+            , The yield command inside of the_ value tag_ in this layout tells ERB that it should replace that tag with the content of another ERB template-->
+        </div>
+      </body>
+      <footer>
+         copywrite 2018
+      </footer>
+   </section>
 </html>

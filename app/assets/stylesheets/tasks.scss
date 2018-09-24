@@ -8,24 +8,23 @@
 //   padding: 5%;
 //   padding-top: 1%;
 // }
-.new-task-container, .add-task-button, .all-tasks-button {
-  list-style-type: none;
+#form-container {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
   border: 2px solid hotpink;
   border-radius: 6px;
-  padding: 5%;
-  padding-top: 1%;
+  align-items: center;
 }
 
-.mark-edit-delete {
+.task-form {
   display: flex;
-  list-style: none;
-  height: 50%;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 10%;
 }
 
-.mark-complete {
-  text-decoration: line-through;
-}
-
-.unmark-complete {
-  text-decoration: none;
+.task-form input {
+  width: 100%;
+  margin: 1%;
 }

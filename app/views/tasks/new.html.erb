@@ -16,7 +16,8 @@
   <%= f.submit "Save Task", class: "task-button" %>
 <%end%>
 </body> -->
-<%= render partial: "form", locals: { action_name: "Create New Task", button_title: 'Save Edit' } %>
-
+<div id='form-container'>
+<%= render partial: "form", locals: { action_name: "Create New Task", button_title: 'Save Edits' } %>
+</div>
 <%# the file name starts with underscore but this doesn't %>
 <%#the model we're using knows that if it has a id it does a patch request, if it doesn't have the id it makes a post request%>

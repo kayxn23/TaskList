@@ -1,18 +1,18 @@
-<body>
-   <main class='container'>
-      <h2>Your Tasks</h2>
+<body id='your-tasks-container'>
+   <main id='your-tasks-container'>
+      <h2 id='your-tasks-title'>Your Tasks</h2>
       <% @tasks.each_with_index do |task, i|%>
       <ul>
          <% if task.completed_at != nil %>
          <div class='mark-complete'>
             <li>
-               <%= "Title: #{i + 1}. #{task.name}" %>
+               <%= "#{i + 1}. #{task.name}" %>
             </li>
          </div>
          <% else %>
          <div class='unmark-complete'>
             <li>
-               <%= "Title: #{i + 1}. #{task.name}" %>
+               <%= "#{i + 1}. #{task.name}" %>
             </li>
          </div>
          <% end %>
@@ -20,10 +20,10 @@
             <%= "Description: #{task.description}" %>
          </li>
          <li>
-            <%= "Aim to complete on: #{task.completion_date}" %>
+            <%= "Goal Completion Date: #{task.completion_date}" %>
          </li>
          <li>
-            <%= "Completed on: #{task.completed_at}" %>
+            <%= "Completed at: #{task.completed_at}" %>
          </li>
       </ul>
       <ul class="mark-edit-delete">
@@ -41,10 +41,10 @@
          </div>
          <% end %>
          <li>
-            <%= link_to " Edit | ", task_path(task.id) %>
+            <%= link_to "Edit | ", edit_task_path(task.id) %>
          </li>
          <li>
-            <%= link_to " Delete | ", task_path(task.id), method: :delete,  data: { confirm: 'Are you sure?' } %>
+            <%= link_to "Delete | ", task_path(task.id), method: :delete,  data: { confirm: 'Are you sure?' } %>
          </li>
       </ul>
       <% end %>
