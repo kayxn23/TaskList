@@ -17,6 +17,16 @@
   align-items: center;
 }
 
+#form-container section h3 a:hover{
+  text-decoration: none;
+  color: hotpink;
+}
+
+#form-container section h3 a{
+  text-decoration: none;
+  color: black;
+}
+
 .task-form {
   display: flex;
   flex-direction: column;
