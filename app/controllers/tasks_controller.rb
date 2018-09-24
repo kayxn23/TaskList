@@ -1,13 +1,3 @@
-# TASKS = [
-#  { id: 1, name: "Complete Weekend Warrior", description: "05 Alouette", completion_date: "2018-09-24" },
-#  { id: 2, name: "Update Hotel", description: "Revisit and refactor", completion_date: "2018-10-01" },
-#  { id: 47, name: "Read POODR", description: "Chapter 4", completion_date: "2018-10-01" },
-#  { id: 0, name: "Watch video", description: "Live Code of Job Board", completion_date: "2018-10-01" },
-#  { id: 7, name: "CS Fun", description: "Reverse Sentence", completion_date: "2018-10-01" },
-#  { id: 9, name: "CS Fun", description: "Palindrome Check", completion_date: "2018-10-01" },
-#  { id: 5, name: "Ada Zoo", description: "Optional", completion_date: "2018-10-01" }
-# ]
-
 require 'date'
 
 class TasksController < ApplicationController
@@ -40,11 +30,12 @@ class TasksController < ApplicationController
 
   def edit #this method gives the user a form
     @task = Task.find(params[:id].to_i)
+
   end
 
   def update
     @task = Task.find_by(id: params[:id].to_i)
-    @task.update(name: params[:task][:name], description: params[:task][:description], completion_date: params[:task][:completion_date])
+    @task.update(task_params)
 
     redirect_to task_path
   end
@@ -75,6 +66,14 @@ class TasksController < ApplicationController
     return params.require(:task).permit(:name, :description, :completion_date)  #require(:task) means only using the task subhash   .permit is only letting it access those three keys, it doesn't let it change the :id field which is good
   end
 
-
-
 end
+
+
+
+# old update method without strong params ....
+# def update
+#   @task = Task.find_by(id: params[:id].to_i)
+#   @task.update(name: params[:task][:name], description: params[:task][:description], completion_date: params[:task][:completion_date])
+#
+#   redirect_to task_path
+# end

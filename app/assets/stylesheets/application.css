@@ -14,8 +14,8 @@
  *= require_self
  */
 
-@media only screen and (min-width: 600px) {
-    section, #your-tasks-container {
+@media only screen and (min-width: 600px) and (min-width: 400px){
+    #website-container {
         background-color: white;
     }
 }
@@ -30,9 +30,9 @@
   font-family: sans-serif;
 }
 
-#website-container header {
+/* #website-container header {
   padding-left: 2%;
-}
+} */
 
 #your-tasks-container {
   display: grid;

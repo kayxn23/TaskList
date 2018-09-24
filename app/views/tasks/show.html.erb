@@ -1,21 +1,19 @@
 <div id='form-container'>
-
-<section>
-  <p><% if @task.nil? %></p>
-  <p><%= "404 NOT FOUND" %></p>
-    <% else %>
-  <%= "Task ##{@task.id} #{@task.name} " %>
-  <ul>
-    <li>
-      <%= "Description: #{@task.description}"%>
-    </li>
-    <li>
-      <%= "Goal completion date: #{@task.completion_date}"%>
-    </li>
-  </ul>
-  <% end %>
-<h3><%= link_to "Edit task##{@task.id}", edit_task_path(@task.id) %></h3>
-</section>
+   <section>
+      <p><% if @task.nil? %></p>
+      <p><%= "404 NOT FOUND" %></p>
+      <% else %>
+      <%= "Task ##{@task.id} #{@task.name} " %>
+      <ul>
+         <li>
+            <%= "Description: #{@task.description}"%>
+         </li>
+         <li>
+            <%= "Goal completion date: #{@task.completion_date}"%>
+         </li>
+      </ul>
+      <% end %>
+      <h3><%= link_to "Edit task##{@task.id}", edit_task_path(@task.id) %></h3>
+   </section>
 </div>
-
 <!-- then in the browser you can do http://localhost:3000/tasks/id -->
