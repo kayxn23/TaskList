@@ -16,7 +16,7 @@
 
 @media only screen and (min-width: 600px) {
     section, #your-tasks-container {
-        background-color: lightblue;
+        background-color: white;
     }
 }
 
@@ -25,8 +25,9 @@
 #website-container {
   display: grid;
   grid-template-rows: 1fr;
-  border: 2px solid hotpink;
+  border: 3px solid grey;
   border-radius: 6px;
+  font-family: sans-serif;
 }
 
 #website-container header {
@@ -71,7 +72,7 @@
 
  .add-task-button, .all-tasks-button {
    list-style-type: none;
-   border: 2px solid hotpink;
+   border: 2px solid grey;
    border-radius: 6px;
    padding: 1.5%;
    padding-top: 1%;
@@ -80,14 +81,22 @@
    text-align: center;
  }
 
+.add-task-button a, .all-tasks-button a{
+  text-decoration: none;
+  color: black;
+}
 
  .mark-edit-delete {
    display: flex;
    list-style: none;
-   height: 50%;
    font-weight: bold;
+   justify-content: space-between;
  }
 
+.mark-edit-delete a{
+  text-decoration: none;
+  color: black;
+}
  .mark-complete {
    text-decoration: line-through;
    font-weight: bold;

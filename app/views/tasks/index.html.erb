@@ -30,21 +30,21 @@
          <% if task.completed_at != nil %>
          <div >
             <li>
-               <%= link_to "Umark Complete | ", complete_task_path(task.id), method: :patch %>
+               <%= link_to "Umark Complete", complete_task_path(task.id), method: :patch %>
             </li>
          </div>
          <% else %>
          <div >
             <li>
-               <%= link_to "Mark complete | ", complete_task_path(task.id), method: :patch %>
+               <%= link_to "Mark complete", complete_task_path(task.id), method: :patch %>
             </li>
          </div>
          <% end %>
          <li>
-            <%= link_to "Edit | ", edit_task_path(task.id) %>
+            <%= link_to "Edit", edit_task_path(task.id) %>
          </li>
          <li>
-            <%= link_to "Delete | ", task_path(task.id), method: :delete,  data: { confirm: 'Are you sure?' } %>
+            <%= link_to "Delete", task_path(task.id), method: :delete,  data: { confirm: 'Are you sure?' } %>
          </li>
       </ul>
       <% end %>
