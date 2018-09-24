@@ -19,12 +19,13 @@
 .mark-edit-delete {
   display: flex;
   list-style: none;
+  height: 50%;
 }
 
-#mark-complete {
+.mark-complete {
   text-decoration: line-through;
 }
 
-#unmark-complete {
+.unmark-complete {
   text-decoration: none;
 }

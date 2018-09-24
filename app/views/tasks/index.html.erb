@@ -1,50 +1,52 @@
-
-
 <body>
-  <main class='container'>
-  <h2>Your Tasks</h2>
-
-
-        <% @tasks.each_with_index do |task, i|%>
-        <ul>
-          <% if task.completed_at != nil %>
-          <section id='mark-complete'>
-          <li>
-            <%= "Title: #{i + 1}. #{task.name}" %>
-          </li>
-          </section>
-          <% else %>
-          <section id='unmark-complete'>
-          <li>
-            <%= "Title: #{i + 1}. #{task.name}" %>
-          </li>
-          </section>
-          <% end %>
-          <li>
+   <main class='container'>
+      <h2>Your Tasks</h2>
+      <% @tasks.each_with_index do |task, i|%>
+      <ul>
+         <% if task.completed_at != nil %>
+         <div class='mark-complete'>
+            <li>
+               <%= "Title: #{i + 1}. #{task.name}" %>
+            </li>
+         </div>
+         <% else %>
+         <div class='unmark-complete'>
+            <li>
+               <%= "Title: #{i + 1}. #{task.name}" %>
+            </li>
+         </div>
+         <% end %>
+         <li>
             <%= "Description: #{task.description}" %>
-          </li>
-          <li>
+         </li>
+         <li>
             <%= "Aim to complete on: #{task.completion_date}" %>
-          </li>
-          <li>
+         </li>
+         <li>
             <%= "Completed on: #{task.completed_at}" %>
-          </li>
-        </ul>
-        <ul class="mark-edit-delete">
-          <li>
-            <%= link_to "Mark Complete | ", complete_task_path(task.id), method: :patch %>
-          </li>
-          <li>
-             <%= link_to " Edit | ", task_path(task.id) %>
-          </li>
-          <li>
-             <%= link_to " Delete | ", task_path(task.id), method: :delete,  data: { confirm: 'Are you sure?' } %>
-          </li>
-        </ul>
-        <% end %>
-
-
-</main>
-
-
+         </li>
+      </ul>
+      <ul class="mark-edit-delete">
+         <% if task.completed_at != nil %>
+         <div >
+            <li>
+               <%= link_to "Umark Complete | ", complete_task_path(task.id), method: :patch %>
+            </li>
+         </div>
+         <% else %>
+         <div >
+            <li>
+               <%= link_to "Mark complete | ", complete_task_path(task.id), method: :patch %>
+            </li>
+         </div>
+         <% end %>
+         <li>
+            <%= link_to " Edit | ", task_path(task.id) %>
+         </li>
+         <li>
+            <%= link_to " Delete | ", task_path(task.id), method: :delete,  data: { confirm: 'Are you sure?' } %>
+         </li>
+      </ul>
+      <% end %>
+   </main>
 </body>
